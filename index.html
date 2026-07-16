@@ -318,6 +318,29 @@ body.menu-open .nav .logo,body.menu-open .nav .nav-icons{color:#fff}
   .reveal{opacity:1;transform:none;transition:none}
   .hero-bg{transform:none}
 }
+
+/* ===== Mobile touch-up (hero declutter) ===== */
+@media(max-width:700px){
+  /* announcement: one line */
+  .announce{font-size:.56rem;letter-spacing:.13em;padding:8px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* brand appears in nav; drop the duplicate hero logotype */
+  .hero-logo{display:none}
+  /* calmer headline */
+  .hero-content{padding-top:110px;padding-bottom:72px}
+  .hero .hero-head, .hero h1{font-size:clamp(2.15rem,9vw,2.6rem);line-height:1.08;margin:0 0 1.5rem}
+  /* benefits: compact glass strip instead of four big tiles over the photo */
+  .hero-benefits{grid-template-columns:1fr 1fr;gap:14px 8px;margin:0 0 1.7rem;padding:14px 12px;
+    background:rgba(15,43,70,.36);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:14px;
+    border:1px solid rgba(248,248,246,.14)}
+  .hb{padding:0;gap:6px;flex-direction:row;text-align:left;justify-content:flex-start}
+  .hb::before{display:none!important}
+  .hb svg{width:20px;height:20px;flex:none}
+  .hb span{font-size:.55rem;letter-spacing:.08em;line-height:1.4;text-shadow:none}
+  .hb span br{display:none}
+  /* CTAs side by side, compact */
+  .hero-cta{gap:10px}
+  .hero-cta .btn{height:46px;padding:0 18px;font-size:.68rem}
+}
 </style>
 </head>
 <body>
