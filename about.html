@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Collections — Coral &amp; Cord</title>
-<meta name="description" content="Shop Coral & Cord technical fishing apparel inspired by the Great Barrier Reef.">
+<title>Our Story — Coral &amp; Cord</title>
+<meta name="description" content="The Coral & Cord story - premium Australian fishing apparel born on the Great Barrier Reef.">
 <style>
 @font-face{font-family:"Cormorant Garamond";src:url("assets/fonts/cormorant.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
 @font-face{font-family:"Manrope";src:url("assets/fonts/manrope.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
@@ -141,6 +141,42 @@ body.menu-open{overflow:hidden}
 @media(max-width:700px){
   .announce{font-size:.56rem;letter-spacing:.13em;padding:8px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
+
+/* about page */
+.page-hero{position:relative;min-height:56vh;display:flex;align-items:flex-end;color:var(--white);overflow:hidden}
+.page-hero .ph-bg{position:absolute;inset:0;background:url('assets/story_reef.jpg') center/cover;transform:scale(1.03)}
+.page-hero .ph-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,43,70,.78),rgba(15,43,70,.15) 60%)}
+.page-hero .wrap{position:relative;z-index:2;padding-bottom:64px;padding-top:170px}
+.ph-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--aqua)}
+.page-hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;margin:.6rem 0 0;max-width:14ch}
+.story-block{padding:100px 0}
+.sb-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px)}
+.sb-grid .lede{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.3;color:var(--navy)}
+.sb-grid .body p{color:var(--muted);margin:0 0 1.2em}
+.process{background:#EFE9E1;padding:100px 0}
+.proc-head{max-width:560px;margin-bottom:44px}
+.proc-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4vw,3rem);margin:.5rem 0 1rem}
+.proc-head p{color:var(--muted)}
+.proc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proc-card{background:var(--white);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-soft)}
+.proc-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.proc-card .pc-body{padding:24px 26px 28px}
+.proc-card .num{font-size:.7rem;font-weight:700;letter-spacing:.2em;color:var(--coral)}
+.proc-card h3{font-family:var(--serif);font-size:1.4rem;margin:.5rem 0 .5rem}
+.proc-card p{font-size:.9rem;color:var(--muted);margin:0}
+.sustain{padding:100px 0}
+.sus-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.sus-img{border-radius:18px;overflow:hidden;box-shadow:var(--shadow-soft)}
+.sus-img img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
+.sus-copy h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4vw,3rem);margin:.5rem 0 1rem}
+.sus-copy p{color:var(--muted);margin:0 0 1.1em}
+.sus-points{list-style:none;padding:0;margin:1.4rem 0 0}
+.sus-points li{padding:10px 0 10px 30px;position:relative;border-bottom:1px solid var(--line);font-size:.92rem}
+.sus-points li::before{content:"";position:absolute;left:2px;top:16px;width:14px;height:14px;border:1.5px solid var(--reef);border-radius:50%}
+.cta-band{background:var(--navy);color:var(--white);text-align:center;padding:90px 0}
+.cta-band h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.4vw,3.2rem);margin:0 0 1.6rem}
+@media(max-width:820px){.sb-grid,.proc-grid,.sus-grid{grid-template-columns:1fr}.story-block,.process,.sustain{padding:70px 0}}
+
 </style>
 </head>
 <body>
@@ -154,10 +190,13 @@ body.menu-open{overflow:hidden}
     <ul class="nav-links">
       <li><a href="collections.html?cat=shirts">Fishing Shirts</a></li>
       <li><a href="collections.html?cat=shorts">Shorts</a></li>
-      <li><a href="collections.html?cat=buffs">Buffs</a></li>
-      <li><a href="collections.html" class="active">Collections</a></li>
+      <li><a href="collections.html?cat=buffs">Buffs</a>
+      <a href="journal.html">Journal</a>
+      <a href="about.html">About</a>
+      <a href="care.html">Customer Care</a></li>
+      <li><a href="collections.html">Collections</a></li>
       <li><a href="journal.html">Journal</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="about.html" class="active">About</a></li>
     </ul>
     <div class="hdr-icons">
       <button aria-label="Search"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg></button>
@@ -173,10 +212,7 @@ body.menu-open{overflow:hidden}
       <a href="collections.html?cat=hoodies">Hooded Shirts</a>
       <a href="collections.html?cat=shorts">Shorts</a>
       <a href="collections.html?cat=buffs">Buffs</a>
-      <a href="journal.html">Journal</a>
-      <a href="about.html">About</a>
-      <a href="care.html">Customer Care</a>
-      <a href="about.html">Our Story</a>
+      <a href="index.html#story">Our Story</a>
     </nav>
   </div>
 </header>
@@ -191,50 +227,67 @@ body.menu-open{overflow:hidden}
   <div class="band-wave" aria-hidden="true"><svg viewBox="0 0 1440 44" preserveAspectRatio="none"><path fill="currentColor" d="M0 24c180 20 360 20 540 9S900 5 1080 13s240 21 360 20v11H0z"/></svg></div>
 </section>
 
-<main class="wrap">
-  <div class="toolbar">
-    <div class="crumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; <span id="crumbCat">Collections</span></div>
-    <div class="sortbox">Sort by:
-      <select id="sortSel" aria-label="Sort products">
-        <option value="featured">Featured</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="name">Name A–Z</option>
-      </select>
+<main>
+<section class="page-hero">
+  <div class="ph-bg"></div><div class="ph-scrim"></div>
+  <div class="wrap">
+    <span class="ph-eyebrow">Our Story</span>
+    <h1>Born on the Great Barrier Reef.</h1>
+  </div>
+</section>
+
+<section class="story-block">
+  <div class="wrap sb-grid">
+    <p class="lede">Coral &amp; Cord started the way most good ideas do in North Queensland - on the water, a long way from a power point, wondering why fishing shirts had to look the way they did.</p>
+    <div class="body">
+      <p>We grew up fishing the reefs off the Queensland coast. The water out there does not look like anything printed on a fishing shirt. It looks like coral gardens and tide lines, mangrove roots and bait balls, the slow geometry that builds a reef over ten thousand years. So we decided to put the real thing on the shirt.</p>
+      <p>Every Coral &amp; Cord pattern begins underwater. We work from photographs and dive notes taken on the reefs we actually fish, then redraw them by hand as fine line work - part scientific illustration, part traditional mandala geometry. The result is apparel that reads as artwork at arm's length and as pure reef up close.</p>
+      <p>The performance side is non-negotiable. UPF 50+ fabric, moisture wicking, quick dry, flatlock seams. Gear that works 40 nautical miles offshore and still looks right at the brewery on the way home.</p>
     </div>
   </div>
+</section>
 
-  <div class="shop">
-    <aside class="side">
-      <section>
-        <h4>Shop Collections</h4>
-        <ul class="cat-list" id="catList">
-          <li><a href="?cat=all" data-cat="all">All Products</a></li>
-          <li><a href="?cat=shirts" data-cat="shirts">Fishing Shirts</a></li>
-          <li><a href="?cat=hoodies" data-cat="hoodies">Hooded Shirts</a></li>
-          <li><a href="?cat=shorts" data-cat="shorts">Shorts</a></li>
-          <li><a href="?cat=buffs" data-cat="buffs">Buffs</a></li>
-        </ul>
-      </section>
-      <section>
-        <h4>Filter by Collection</h4>
-        <ul class="col-filter" id="colFilter"></ul>
-      </section>
-      <section>
-        <h4>Size</h4>
-        <div class="size-chips"><span>S</span><span>M</span><span>L</span><span>XL</span><span>2XL</span><span>3XL</span></div>
-        <p class="note">Choose your size on the product page.</p>
-      </section>
-    </aside>
-
-    <div>
-      <div class="grid-head"><h2 id="gridTitle">All Products</h2><span class="count" id="gridCount"></span></div>
-      <div class="pgrid" id="pgrid"></div>
-      <div class="empty-msg" id="emptyMsg" hidden>No products match those filters.</div>
-      <div class="pager" id="pager"></div>
+<section class="process">
+  <div class="wrap">
+    <div class="proc-head">
+      <span class="ph-eyebrow" style="color:var(--coral)">From Reef to Garment</span>
+      <h2>How a pattern is made.</h2>
+      <p>Three steps, no shortcuts. Each collection is drawn from a single reef system and carries its story.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-card"><img src="assets/story_reef.jpg" alt="Diver's view of coral and reef fish" loading="lazy"><div class="pc-body"><span class="num">01</span><h3>Dive it</h3><p>We start in the water - photographing coral structure, fish, current lines and the colours of the reef we are naming the collection after.</p></div></div>
+      <div class="proc-card"><img src="assets/pat_whaleshark.jpg" alt="Hand drawn whale shark line work" loading="lazy"><div class="pc-body"><span class="num">02</span><h3>Draw it</h3><p>Back on land it becomes fine line work - marine life and reef geometry redrawn by hand into a single repeating artwork.</p></div></div>
+      <div class="proc-card"><img src="assets/cat_shirts.jpg" alt="Coral and Cord shirt worn on the water" loading="lazy"><div class="pc-body"><span class="num">03</span><h3>Wear it</h3><p>The artwork is printed on UPF 50+ technical fabric and cut into shirts, hoodies, shorts and buffs built for long days on the water.</p></div></div>
     </div>
   </div>
+</section>
+
+<section class="sustain" id="sustainability">
+  <div class="wrap sus-grid">
+    <div class="sus-img"><img src="assets/pat_mangrove.jpg" alt="Mangrove roots artwork" loading="lazy"></div>
+    <div class="sus-copy">
+      <span class="ph-eyebrow" style="color:var(--coral)">Sustainability</span>
+      <h2>The reef is the whole point.</h2>
+      <p>A brand built on the Great Barrier Reef does not get to treat it as a backdrop. We keep our footprint small and our commitments practical.</p>
+      <ul class="sus-points">
+        <li>Recycled and recyclable packaging on every order</li>
+        <li>Print on demand production to avoid dead stock</li>
+        <li>A share of every Reef Collection release supports reef conservation</li>
+        <li>Designed in Australia, made to last more than one season</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <span class="ph-eyebrow">Wear the Reef</span>
+    <h2>Find the collection that fishes like you do.</h2>
+    <a href="collections.html" class="btn btn-primary" style="background:var(--coral)">Shop Collections</a>
+  </div>
+</section>
 </main>
+
 
 <section class="strip">
   <div class="wrap">
@@ -263,105 +316,15 @@ body.menu-open{overflow:hidden}
 </footer>
 
 <script src="assets/cart.js"></script>
+
 <script>
 (function(){
-  var C=window.CC, all=Object.values(C.CATALOG);
-  var PER=12, state={cat:"all", cols:{}, sort:"featured", page:1};
-  var params=new URLSearchParams(location.search);
-  if(params.get("cat")) state.cat=params.get("cat");
-
-  var catNames={all:"All Products",shirts:"Fishing Shirts",hoodies:"Hooded Shirts",shorts:"Shorts",buffs:"Buffs"};
-  var grid=document.getElementById("pgrid"), pager=document.getElementById("pager"),
-      title=document.getElementById("gridTitle"), count=document.getElementById("gridCount"),
-      crumb=document.getElementById("crumbCat"), empty=document.getElementById("emptyMsg");
-
-  // Collection filter checkboxes
-  var cf=document.getElementById("colFilter");
-  Object.keys(C.COLLECTIONS).forEach(function(slug){
-    var c=C.COLLECTIONS[slug];
-    var li=document.createElement("li");
-    li.innerHTML='<span class="dot" style="background:'+c.accent+'"></span>'+c.name;
-    li.addEventListener("click",function(){
-      state.cols[slug]=!state.cols[slug]; li.classList.toggle("on",state.cols[slug]);
-      state.page=1; renderAll();
-    });
-    cf.appendChild(li);
-  });
-
-  function filtered(){
-    var anyCol=Object.keys(state.cols).some(function(k){return state.cols[k]});
-    var list=all.filter(function(p){
-      if(state.cat!=="all" && p.catKey!==state.cat) return false;
-      if(anyCol && !state.cols[p.slug]) return false;
-      return true;
-    });
-    if(state.sort==="price-asc") list.sort(function(a,b){return a.price-b.price});
-    if(state.sort==="price-desc") list.sort(function(a,b){return b.price-a.price});
-    if(state.sort==="name") list.sort(function(a,b){return (a.name+a.sub).localeCompare(b.name+b.sub)});
-    return list;
-  }
-  function card(p){
-    var hasback=p.imgs.length>1&&p.type==="shirt";
-    var imgs='<img class="front'+(hasback?' hasback':'')+'" src="'+p.imgs[0]+'" alt="'+p.name+' '+p.sub+'" loading="lazy">'
-      +(hasback?'<img class="back" src="'+p.imgs[1]+'" alt="'+p.name+' '+p.sub+' back" loading="lazy">':'');
-    return '<article class="pcard">'
-      +(p.badge?'<span class="badge'+(p.badge==="NEW"?" new":"")+'">'+p.badge+'</span>':'')
-      +'<a class="pimg" href="product.html?id='+p.id+'">'+imgs+'</a>'
-      +'<div class="pbody"><span class="pcat">'+p.cat+'</span>'
-      +'<a class="pnm" href="product.html?id='+p.id+'">'+p.name+'</a>'
-      +'<span class="psub">'+p.sub+'</span>'
-      +'<div class="dotrow"><i style="background:'+p.accent+'"></i></div>'
-      +'<div class="pfoot"><span class="pprice">'+C.fmt(p.price)+' AUD</span>'
-      +'<button class="qadd" data-add="'+p.id+'" data-label="Add" aria-label="Add '+p.name+' '+p.sub+' to cart">Add</button></div>'
-      +'</div></article>';
-  }
-  function renderAll(){
-    var list=filtered(), pages=Math.max(1,Math.ceil(list.length/PER));
-    if(state.page>pages) state.page=pages;
-    var slice=list.slice((state.page-1)*PER, state.page*PER);
-    grid.innerHTML=slice.map(card).join("");
-    empty.hidden=list.length>0;
-    title.textContent=catNames[state.cat]||"All Products";
-    crumb.textContent=title.textContent;
-    count.textContent=list.length+" product"+(list.length===1?"":"s");
-    document.title=title.textContent+" — Coral & Cord";
-    // active sidebar link
-    document.querySelectorAll("#catList a").forEach(function(a){
-      a.classList.toggle("active",a.getAttribute("data-cat")===state.cat);
-    });
-    // pager
-    pager.innerHTML="";
-    if(pages>1){
-      for(var i=1;i<=pages;i++){
-        (function(n){
-          var b=document.createElement("button"); b.textContent=n;
-          if(n===state.page) b.classList.add("cur");
-          b.addEventListener("click",function(){ state.page=n; renderAll(); window.scrollTo({top:0,behavior:"smooth"}); });
-          pager.appendChild(b);
-        })(i);
-      }
-    }
-  }
-  // sidebar category via pushState (no reload)
-  document.querySelectorAll("#catList a").forEach(function(a){
-    a.addEventListener("click",function(e){
-      e.preventDefault();
-      state.cat=a.getAttribute("data-cat"); state.page=1;
-      history.replaceState(null,"", state.cat==="all"?"collections.html":"collections.html?cat="+state.cat);
-      renderAll();
-    });
-  });
-  document.getElementById("sortSel").addEventListener("change",function(){ state.sort=this.value; state.page=1; renderAll(); });
-
-  // mobile menu
   var mt=document.getElementById("menuToggle"), mm=document.getElementById("mobileMenu");
-  mt.addEventListener("click",function(){
+  if(mt&&mm) mt.addEventListener("click",function(){
     var open=mm.classList.toggle("open");
     document.body.classList.toggle("menu-open",open);
     mt.setAttribute("aria-expanded",String(open)); mm.setAttribute("aria-hidden",String(!open));
   });
-
-  renderAll();
 })();
 </script>
 </body>
