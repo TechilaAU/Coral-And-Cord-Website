@@ -78,7 +78,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
 
 /* Nav */
 .nav{position:fixed;top:37px;left:0;right:0;z-index:50;transition:all .5s var(--ease)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;
+.nav-inner{position:relative;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;
   border-bottom:1px solid transparent;transition:all .5s var(--ease)}
 .logo{font-family:var(--serif);font-weight:600;font-size:1.32rem;line-height:.92;letter-spacing:.06em;color:var(--white)}
 .logo span{display:block}
@@ -153,7 +153,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
 .prod:hover .prod-img .front{opacity:0}
 .prod:hover .prod-img .back{opacity:1}
 .prod-meta{padding:16px 4px 0}
-.prod-meta .pname{font-family:var(--serif);font-size:1.28rem;font-weight:600;line-height:1.1}
+.prod-meta .pname{display:block;font-family:var(--serif);font-size:1.28rem;font-weight:600;line-height:1.1}
 .prod-meta .pcat{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:.35rem 0 .5rem}
 .prod-meta .prow{display:flex;align-items:center;justify-content:space-between}
 .prod-meta .price{font-weight:600;font-size:.95rem;color:var(--navy)}
@@ -237,55 +237,42 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
 .socials a:hover{opacity:1;color:var(--aqua)}
 
 
-/* Add to cart button */
-.add-btn{height:34px;padding:0 16px;border-radius:30px;border:1.5px solid var(--navy);
-  background:transparent;color:var(--navy);font-family:var(--sans);font-size:.62rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s var(--ease);white-space:nowrap}
-.add-btn:hover{background:var(--navy);color:#fff}
-.add-btn.added{background:var(--coral);border-color:var(--coral);color:#fff}
 
-/* Cart drawer */
-.cart-overlay{position:fixed;inset:0;background:rgba(15,43,70,.45);backdrop-filter:blur(3px);
-  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);z-index:90}
-.cart-overlay.open{opacity:1;pointer-events:auto}
-.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:var(--white);
-  z-index:100;display:flex;flex-direction:column;transform:translateX(105%);
-  transition:transform .5s var(--ease);box-shadow:-30px 0 80px -20px rgba(15,43,70,.35)}
-.cart-drawer.open{transform:none}
-.cart-head{display:flex;align-items:center;justify-content:space-between;padding:22px 26px;border-bottom:1px solid var(--line)}
-.cart-head h3{font-size:1.6rem}
-.cart-head .cart-qty-label{font-family:var(--sans);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-left:10px}
-.cart-close{background:none;border:none;cursor:pointer;color:var(--navy);padding:6px;display:flex}
-.cart-items{flex:1;overflow-y:auto;padding:10px 26px}
-.cart-empty{text-align:center;color:var(--muted);padding:60px 20px;font-size:.92rem}
-.cart-empty svg{margin:0 auto 16px;display:block;color:var(--seafoam)}
-.cart-item{display:grid;grid-template-columns:76px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:center}
-.cart-item-img{width:76px;height:95px;background:#fff;border-radius:10px;border:1px solid var(--line);overflow:hidden}
-.cart-item-img img{width:100%;height:100%;object-fit:contain;padding:8%;box-sizing:border-box}
-.cart-item-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;line-height:1.15}
-.cart-item-price{font-size:.8rem;color:var(--muted);margin-top:3px}
-.qty-row{display:flex;align-items:center;gap:10px;margin-top:10px}
-.qty-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);background:none;cursor:pointer;
-  color:var(--navy);font-size:.9rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:all .25s}
-.qty-btn:hover{border-color:var(--navy)}
-.qty-val{font-size:.85rem;font-weight:600;min-width:18px;text-align:center}
-.cart-item-remove{background:none;border:none;cursor:pointer;color:var(--muted);font-size:.66rem;letter-spacing:.1em;
-  text-transform:uppercase;font-weight:600;padding:4px;transition:color .25s}
-.cart-item-remove:hover{color:var(--coral)}
-.cart-item-line{font-weight:600;color:var(--navy);font-size:.92rem;justify-self:end;align-self:start;margin-top:4px}
-.cart-foot{border-top:1px solid var(--line);padding:20px 26px 26px;background:var(--bg)}
-.ship-bar{margin-bottom:16px}
-.ship-msg{font-size:.74rem;color:var(--muted);margin-bottom:8px}
-.ship-msg b{color:var(--navy)}
-.ship-track{height:5px;background:var(--line);border-radius:4px;overflow:hidden}
-.ship-fill{height:100%;background:linear-gradient(90deg,var(--reef),var(--aqua));border-radius:4px;width:0;transition:width .5s var(--ease)}
-.ship-fill.free{background:linear-gradient(90deg,var(--coral),#f0906f)}
-.cart-subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
-.cart-subtotal .lbl{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--navy)}
-.cart-subtotal .amt{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--navy)}
-.cart-note{font-size:.7rem;color:var(--muted);margin-bottom:14px}
-.checkout-btn{width:100%;justify-content:center}
-@media(max-width:480px){.cart-drawer{width:100vw}}
+
+/* Horizontal logo */
+.logo{display:flex;flex-direction:column;gap:3px}
+.lg-top{display:inline-flex;align-items:center;gap:.45em;font-family:var(--serif);font-weight:600;font-size:1.5rem;letter-spacing:.1em;line-height:1}
+.lg-anchor{width:.82em;height:.82em;flex:none}
+.lg-coral{color:var(--coral)}
+.lg-sub{font-family:var(--sans);font-size:.5rem;font-weight:600;letter-spacing:.42em;text-transform:uppercase;opacity:.85;padding-left:2px}
+.nav.scrolled .lg-coral{color:var(--coral)}
+
+/* Hero (banner layout) */
+.hero-logo{margin-bottom:2.2rem}
+.hl-top{display:inline-flex;align-items:center;gap:.4em;font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,4.4vw,3.4rem);letter-spacing:.1em;line-height:1;color:#fff;text-shadow:0 2px 30px rgba(15,43,70,.4)}
+.hl-top .lg-anchor{color:var(--coral);width:.8em;height:.8em}
+.hl-sub{display:flex;align-items:center;gap:14px;margin-top:12px;font-family:var(--sans);font-size:clamp(.62rem,1.1vw,.85rem);font-weight:600;letter-spacing:.5em;text-transform:uppercase;color:#fff;opacity:.95}
+.hl-rule{height:2px;width:clamp(28px,4vw,52px);background:var(--coral);opacity:.9}
+.hero-head{font-family:var(--sans);font-weight:800;font-size:clamp(2.5rem,5.6vw,4.6rem);line-height:1.02;letter-spacing:.015em;text-transform:uppercase;color:#fff;text-shadow:0 3px 34px rgba(15,43,70,.45);margin:0 0 2rem}
+.hh-coral{color:var(--coral)}
+.hero-benefits{display:flex;gap:0;margin:0 0 2.4rem;flex-wrap:wrap}
+.hb{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;color:#fff;padding:0 26px;position:relative}
+.hb:first-child{padding-left:0}
+.hb+.hb::before{content:"";position:absolute;left:0;top:8%;height:84%;width:1px;background:rgba(255,255,255,.4)}
+.hb span{font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.6;text-shadow:0 1px 14px rgba(15,43,70,.5)}
+.btn-coral{background:var(--coral);color:#fff}
+.btn-coral:hover{background:var(--navy);transform:translateY(-2px)}
+.btn-square{border-radius:6px}
+
+/* Mobile menu */
+.mobile-menu{position:fixed;inset:0;background:var(--navy);z-index:45;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu nav{display:flex;flex-direction:column;gap:26px;text-align:center}
+.mobile-menu a{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--white);letter-spacing:.04em}
+.mobile-menu a:hover{color:var(--aqua)}
+body.menu-open{overflow:hidden}
+body.menu-open .nav .logo,body.menu-open .nav .nav-icons{color:#fff}
 
 /* Reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -301,6 +288,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
 }
 @media(max-width:820px){
   .wrap{padding:0 24px}
+  .hero{min-height:100svh}
+  .hero-content{padding-top:120px;padding-bottom:110px}
+  .hero-benefits{display:grid;grid-template-columns:1fr 1fr;gap:20px 0}
+  .hb{padding:0 14px}
+  .hb:nth-child(odd){padding-left:0}
+  .hb:nth-child(3)::before{display:none}
+  .hero-cta .btn{flex:1;min-width:150px}
   .section{padding:80px 0}
   .cat-grid{grid-template-columns:1fr;gap:18px}
   .why-grid{grid-template-columns:1fr 1fr;gap:30px 0}
@@ -334,14 +328,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
 <!-- Nav -->
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="logo" aria-label="Coral and Cord home"><span>Coral</span><span>&amp; Cord</span></a>
+    <a href="index.html" class="logo" aria-label="Coral and Cord home"><span class="lg-top">CORAL<svg class="lg-anchor lg-coral" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="8" r="3.2"/><path d="M20 11.2v22"/><path d="M12 18h16"/><path d="M9 26c0 5.5 5.5 8 11 8s11-2.5 11-8"/><path d="M9 26l-3 2.6M9 26l3 2.6M31 26l3 2.6M31 26l-3 2.6"/></svg>CORD</span><span class="lg-sub">Fishing Apparel</span></a>
     <nav>
       <ul class="nav-links">
-        <li><a href="#">Shop</a></li>
-        <li><a href="#cats">Fishing Shirts</a></li>
-        <li><a href="#cats">Shorts</a></li>
-        <li><a href="#cats">Buffs</a></li>
-        <li><a href="#collection">Collections</a></li>
+        <li><a href="collections.html">Shop</a></li>
+        <li><a href="collections.html?cat=shirts">Fishing Shirts</a></li>
+        <li><a href="collections.html?cat=shorts">Shorts</a></li>
+        <li><a href="collections.html?cat=buffs">Buffs</a></li>
+        <li><a href="collections.html">Collections</a></li>
         <li><a href="#story">Journal</a></li>
         <li><a href="#story">About</a></li>
       </ul>
@@ -350,9 +344,21 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
       <button aria-label="Search"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg></button>
       <button aria-label="Account"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke-linecap="round"/></svg></button>
       <button aria-label="Cart" id="cartBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg><span class="cart-count" id="cartCount">0</span></button>
-      <button class="nav-toggle" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+      <button class="nav-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
     </div>
   </div>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav>
+    <a href="collections.html">Shop All</a>
+    <a href="collections.html?cat=shirts">Fishing Shirts</a>
+    <a href="collections.html?cat=hoodies">Hooded Shirts</a>
+    <a href="collections.html?cat=shorts">Shorts</a>
+    <a href="collections.html?cat=buffs">Buffs</a>
+    <a href="index.html#story">Our Story</a>
+    <a href="index.html#story">Journal</a>
+  </nav>
+</div>
 </header>
 
 <!-- Hero -->
@@ -367,11 +373,20 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
     </svg>
   </div>
   <div class="wrap hero-content">
-    <h1>Coral<span class="amp"><svg class="hero-emblem" viewBox="0 0 40 40" fill="none" stroke="var(--coral)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="9" r="3"/><path d="M20 12v20"/><path d="M12 20h16"/><path d="M11 25c0 6 5 9 9 9s9-3 9-9"/><path d="M11 25l-3 2m3-2 3 2m15-2 3 2m-3-2-3 2"/><path d="M20 32c-3-3-4-6-4-9m4 9c3-3 4-6 4-9"/></svg>&amp; Cord</span></h1>
-    <p class="hero-sub">Inspired by the Reef.<br>Built for Adventure.</p>
+    <div class="hero-logo">
+      <div class="hl-top">CORAL<svg class="lg-anchor" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="8" r="3.2"/><path d="M20 11.2v22"/><path d="M12 18h16"/><path d="M9 26c0 5.5 5.5 8 11 8s11-2.5 11-8"/><path d="M9 26l-3 2.6M9 26l3 2.6M31 26l3 2.6M31 26l-3 2.6"/></svg>CORD</div>
+      <div class="hl-sub"><span class="hl-rule"></span><span>Fishing Apparel</span><span class="hl-rule"></span></div>
+    </div>
+    <h1 class="hero-head">Inspired by<br>the Reef.<br><span class="hh-coral">Built for<br>Adventure.</span></h1>
+    <div class="hero-benefits">
+      <div class="hb"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="24" cy="24" r="8"/><path d="M24 6v5M24 37v5M6 24h5M37 24h5M11 11l3.5 3.5M33.5 33.5 37 37M37 11l-3.5 3.5M14.5 33.5 11 37"/></svg><span>UPF 50+<br>Sun Protection</span></div>
+      <div class="hb"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8c5 7 9 12 9 18a9 9 0 0 1-18 0c0-6 4-11 9-18z"/><path d="M20 26a4 4 0 0 0 4 4"/></svg><span>Moisture<br>Wicking</span></div>
+      <div class="hb"><svg width="38" height="34" viewBox="0 0 52 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 19h26a5 5 0 1 0-5-5"/><path d="M6 29h32a5 5 0 1 1-5 5"/><path d="M6 24h18"/></svg><span>Quick Dry<br>Performance</span></div>
+      <div class="hb"><svg width="30" height="34" viewBox="0 0 40 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="9" r="4"/><path d="M20 13v28M11 21h18"/><path d="M8 30c0 8 6 12 12 12s12-4 12-12"/><path d="M8 30l-4 3m4-3 4 3m20-3 4 3m-4-3-4 3"/></svg><span>Built for<br>the Reef</span></div>
+    </div>
     <div class="hero-cta">
-      <a href="#collection" class="btn btn-primary">Shop Collection</a>
-      <a href="#story" class="btn btn-outline">Our Story</a>
+      <a href="collections.html" class="btn btn-coral btn-square">Shop Collection</a>
+      <a href="#story" class="btn btn-outline btn-square">Our Story</a>
     </div>
   </div>
   <div class="wave-divider" aria-hidden="true">
@@ -383,15 +398,15 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
 <section class="section cats" id="cats">
   <div class="wrap">
     <div class="cat-grid">
-      <a class="cat-card reveal" href="#">
+      <a class="cat-card reveal" href="collections.html?cat=shirts">
         <img src="assets/cat_shirts.jpg" alt="Angler wearing a Coral & Cord reef-print fishing shirt">
         <div class="cat-meta"><h3>Fishing Shirts</h3><span class="link-arrow">Explore <svg width="20" height="8" viewBox="0 0 20 8" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 4h18M15 1l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
       </a>
-      <a class="cat-card reveal" href="#">
+      <a class="cat-card reveal" href="collections.html?cat=shorts">
         <img src="assets/cat_shorts.jpg" alt="Coral & Cord premium reef-print boardshorts">
         <div class="cat-meta"><h3>Premium Shorts</h3><span class="link-arrow">Explore <svg width="20" height="8" viewBox="0 0 20 8" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 4h18M15 1l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
       </a>
-      <a class="cat-card reveal" href="#">
+      <a class="cat-card reveal" href="collections.html?cat=buffs">
         <img src="assets/cat_buffs.jpg" alt="Angler wearing a Coral & Cord performance buff">
         <div class="cat-meta"><h3>Performance Buffs</h3><span class="link-arrow">Explore <svg width="20" height="8" viewBox="0 0 20 8" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 4h18M15 1l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
       </a>
@@ -399,29 +414,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
   </div>
 </section>
 
-<!-- Why -->
-<section class="why">
-  <div class="wrap">
-    <div class="why-grid">
-      <div class="why-item reveal">
-        <div class="why-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="24" cy="24" r="8"/><path d="M24 6v5M24 37v5M6 24h5M37 24h5M11 11l3.5 3.5M33.5 33.5 37 37M37 11l-3.5 3.5M14.5 33.5 11 37"/></svg></div>
-        <h4>UPF 50+<br>Sun Protection</h4>
-      </div>
-      <div class="why-item reveal">
-        <div class="why-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8c5 7 9 12 9 18a9 9 0 0 1-18 0c0-6 4-11 9-18z"/><path d="M20 26a4 4 0 0 0 4 4"/></svg></div>
-        <h4>Moisture<br>Wicking</h4>
-      </div>
-      <div class="why-item reveal">
-        <div class="why-icon"><svg width="44" height="40" viewBox="0 0 52 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M6 19h26a5 5 0 1 0-5-5"/><path d="M6 29h32a5 5 0 1 1-5 5"/><path d="M6 24h18"/></svg></div>
-        <h4>Quick Dry<br>Performance</h4>
-      </div>
-      <div class="why-item reveal">
-        <div class="why-icon"><svg width="36" height="40" viewBox="0 0 40 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="9" r="4"/><path d="M20 13v28M11 21h18"/><path d="M8 30c0 8 6 12 12 12s12-4 12-12"/><path d="M8 30l-4 3m4-3 4 3m20-3 4 3m-4-3-4 3"/></svg></div>
-        <h4>Built for<br>the Reef</h4>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Featured Collection -->
 <section class="section collection" id="collection">
@@ -432,57 +424,57 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
         <h2>Ribbon Reef</h2>
         <div class="rule"></div>
         <p>Inspired by the vibrant life and colours of the Great Barrier Reef’s outer ribbons.</p>
-        <a href="#" class="btn btn-primary">Shop the Collection</a>
+        <a href="collections.html" class="btn btn-primary">Shop the Collection</a>
       </div>
       <div class="carousel reveal">
         <div class="carousel-track" id="track">
           <article class="prod" data-id="rr-shirt">
-            <div class="prod-img"><img class="front" src="assets/ribbonreef-front.png" alt="Ribbon Reef Shirt, front" loading="lazy"><img class="back" src="assets/ribbonreef-back.png" alt="Ribbon Reef Shirt, back" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Ribbon Reef Shirt</div><div class="pcat">Long Sleeve · UPF 50+</div><div class="prow"><span class="price">$89</span><button class="add-btn" data-add="rr-shirt" aria-label="Add Ribbon Reef Shirt to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=rr-shirt"><img class="front" src="assets/ribbonreef-front.png" alt="Ribbon Reef Long Sleeve Shirt, front" loading="lazy"><img class="back" src="assets/ribbonreef-back.png" alt="Ribbon Reef Long Sleeve Shirt, back" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=rr-shirt">Ribbon Reef</a><div class="pcat">Long Sleeve Shirt</div><div class="prow"><span class="price">$79.95 AUD</span><button class="add-btn" data-add="rr-shirt" data-label="Add to Cart" aria-label="Add Ribbon Reef Long Sleeve Shirt to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="rr-hoodie">
-            <div class="prod-img"><img class="front" src="assets/ribbonreef-hoodie.png" alt="Ribbon Reef Hoodie, front" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Ribbon Reef Hoodie</div><div class="pcat">Hooded · UPF 50+</div><div class="prow"><span class="price">$109</span><button class="add-btn" data-add="rr-hoodie" aria-label="Add Ribbon Reef Hoodie to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=rr-hoodie"><img class="front" src="assets/ribbonreef-hoodie.png" alt="Ribbon Reef Hooded Shirt, front" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=rr-hoodie">Ribbon Reef</a><div class="pcat">Hooded Shirt</div><div class="prow"><span class="price">$89.95 AUD</span><button class="add-btn" data-add="rr-hoodie" data-label="Add to Cart" aria-label="Add Ribbon Reef Hooded Shirt to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="rr-shorts">
-            <div class="prod-img"><img class="front" src="assets/ribbonreef-shorts.png" alt="Ribbon Reef Shorts, front" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Ribbon Reef Shorts</div><div class="pcat">4-Way Stretch</div><div class="prow"><span class="price">$69</span><button class="add-btn" data-add="rr-shorts" aria-label="Add Ribbon Reef Shorts to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=rr-shorts"><img class="front" src="assets/ribbonreef-shorts.png" alt="Ribbon Reef Boardshorts, front" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=rr-shorts">Ribbon Reef</a><div class="pcat">Boardshorts</div><div class="prow"><span class="price">$69.95 AUD</span><button class="add-btn" data-add="rr-shorts" data-label="Add to Cart" aria-label="Add Ribbon Reef Boardshorts to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="rr-buff">
-            <div class="prod-img"><img class="front" src="assets/ribbonreef-buff.png" alt="Ribbon Reef Buff, front" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Ribbon Reef Buff</div><div class="pcat">Seamless · UPF 50+</div><div class="prow"><span class="price">$29</span><button class="add-btn" data-add="rr-buff" aria-label="Add Ribbon Reef Buff to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=rr-buff"><img class="front" src="assets/ribbonreef-buff.png" alt="Ribbon Reef Performance Buff, front" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=rr-buff">Ribbon Reef</a><div class="pcat">Performance Buff</div><div class="prow"><span class="price">$34.95 AUD</span><button class="add-btn" data-add="rr-buff" data-label="Add to Cart" aria-label="Add Ribbon Reef Performance Buff to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="bw-shirt">
-            <div class="prod-img"><img class="front" src="assets/bluewater-front.png" alt="Bluewater Shirt, front" loading="lazy"><img class="back" src="assets/bluewater-back.png" alt="Bluewater Shirt, back" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Bluewater Shirt</div><div class="pcat">Long Sleeve · UPF 50+</div><div class="prow"><span class="price">$89</span><button class="add-btn" data-add="bw-shirt" aria-label="Add Bluewater Shirt to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=bw-shirt"><img class="front" src="assets/bluewater-front.png" alt="Bluewater Long Sleeve Shirt, front" loading="lazy"><img class="back" src="assets/bluewater-back.png" alt="Bluewater Long Sleeve Shirt, back" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=bw-shirt">Bluewater</a><div class="pcat">Long Sleeve Shirt</div><div class="prow"><span class="price">$79.95 AUD</span><button class="add-btn" data-add="bw-shirt" data-label="Add to Cart" aria-label="Add Bluewater Long Sleeve Shirt to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="tt-shirt">
-            <div class="prod-img"><img class="front" src="assets/tropictide-front.png" alt="Tropic Tide Shirt, front" loading="lazy"><img class="back" src="assets/tropictide-back.png" alt="Tropic Tide Shirt, back" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Tropic Tide Shirt</div><div class="pcat">Long Sleeve · UPF 50+</div><div class="prow"><span class="price">$89</span><button class="add-btn" data-add="tt-shirt" aria-label="Add Tropic Tide Shirt to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=tt-shirt"><img class="front" src="assets/tropictide-front.png" alt="Tropic Tide Long Sleeve Shirt, front" loading="lazy"><img class="back" src="assets/tropictide-back.png" alt="Tropic Tide Long Sleeve Shirt, back" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=tt-shirt">Tropic Tide</a><div class="pcat">Long Sleeve Shirt</div><div class="prow"><span class="price">$79.95 AUD</span><button class="add-btn" data-add="tt-shirt" data-label="Add to Cart" aria-label="Add Tropic Tide Long Sleeve Shirt to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="sc-shirt">
-            <div class="prod-img"><img class="front" src="assets/sunsetcurrent-front.png" alt="Sunset Current Shirt, front" loading="lazy"><img class="back" src="assets/sunsetcurrent-back.png" alt="Sunset Current Shirt, back" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Sunset Current Shirt</div><div class="pcat">Long Sleeve · UPF 50+</div><div class="prow"><span class="price">$89</span><button class="add-btn" data-add="sc-shirt" aria-label="Add Sunset Current Shirt to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=sc-shirt"><img class="front" src="assets/sunsetcurrent-front.png" alt="Sunset Current Long Sleeve Shirt, front" loading="lazy"><img class="back" src="assets/sunsetcurrent-back.png" alt="Sunset Current Long Sleeve Shirt, back" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=sc-shirt">Sunset Current</a><div class="pcat">Long Sleeve Shirt</div><div class="prow"><span class="price">$79.95 AUD</span><button class="add-btn" data-add="sc-shirt" data-label="Add to Cart" aria-label="Add Sunset Current Long Sleeve Shirt to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="cg-shirt">
-            <div class="prod-img"><img class="front" src="assets/coralgarden-front.png" alt="Coral Garden Shirt, front" loading="lazy"><img class="back" src="assets/coralgarden-back.png" alt="Coral Garden Shirt, back" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Coral Garden Shirt</div><div class="pcat">Long Sleeve · UPF 50+</div><div class="prow"><span class="price">$89</span><button class="add-btn" data-add="cg-shirt" aria-label="Add Coral Garden Shirt to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=cg-shirt"><img class="front" src="assets/coralgarden-front.png" alt="Coral Garden Long Sleeve Shirt, front" loading="lazy"><img class="back" src="assets/coralgarden-back.png" alt="Coral Garden Long Sleeve Shirt, back" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=cg-shirt">Coral Garden</a><div class="pcat">Long Sleeve Shirt</div><div class="prow"><span class="price">$79.95 AUD</span><button class="add-btn" data-add="cg-shirt" data-label="Add to Cart" aria-label="Add Coral Garden Long Sleeve Shirt to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="rt-shirt">
-            <div class="prod-img"><img class="front" src="assets/reeftopo-front.png" alt="Reef Topography Shirt, front" loading="lazy"><img class="back" src="assets/reeftopo-back.png" alt="Reef Topography Shirt, back" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Reef Topography Shirt</div><div class="pcat">Long Sleeve · UPF 50+</div><div class="prow"><span class="price">$89</span><button class="add-btn" data-add="rt-shirt" aria-label="Add Reef Topography Shirt to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=rt-shirt"><img class="front" src="assets/reeftopo-front.png" alt="Reef Topography Long Sleeve Shirt, front" loading="lazy"><img class="back" src="assets/reeftopo-back.png" alt="Reef Topography Long Sleeve Shirt, back" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=rt-shirt">Reef Topography</a><div class="pcat">Long Sleeve Shirt</div><div class="prow"><span class="price">$79.95 AUD</span><button class="add-btn" data-add="rt-shirt" data-label="Add to Cart" aria-label="Add Reef Topography Long Sleeve Shirt to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="mg-shirt">
-            <div class="prod-img"><img class="front" src="assets/mangrove-front.png" alt="Mangrove Roots Shirt, front" loading="lazy"><img class="back" src="assets/mangrove-back.png" alt="Mangrove Roots Shirt, back" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Mangrove Roots Shirt</div><div class="pcat">Long Sleeve · UPF 50+</div><div class="prow"><span class="price">$89</span><button class="add-btn" data-add="mg-shirt" aria-label="Add Mangrove Roots Shirt to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=mg-shirt"><img class="front" src="assets/mangrove-front.png" alt="Mangrove Roots Long Sleeve Shirt, front" loading="lazy"><img class="back" src="assets/mangrove-back.png" alt="Mangrove Roots Long Sleeve Shirt, back" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=mg-shirt">Mangrove Roots</a><div class="pcat">Long Sleeve Shirt</div><div class="prow"><span class="price">$79.95 AUD</span><button class="add-btn" data-add="mg-shirt" data-label="Add to Cart" aria-label="Add Mangrove Roots Long Sleeve Shirt to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="er-shirt">
-            <div class="prod-img"><img class="front" src="assets/electricreef-front.png" alt="Electric Reef Shirt, front" loading="lazy"><img class="back" src="assets/electricreef-back.png" alt="Electric Reef Shirt, back" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Electric Reef Shirt</div><div class="pcat">Long Sleeve · UPF 50+</div><div class="prow"><span class="price">$89</span><button class="add-btn" data-add="er-shirt" aria-label="Add Electric Reef Shirt to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=er-shirt"><img class="front" src="assets/electricreef-front.png" alt="Electric Reef Long Sleeve Shirt, front" loading="lazy"><img class="back" src="assets/electricreef-back.png" alt="Electric Reef Long Sleeve Shirt, back" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=er-shirt">Electric Reef</a><div class="pcat">Long Sleeve Shirt</div><div class="prow"><span class="price">$79.95 AUD</span><button class="add-btn" data-add="er-shirt" data-label="Add to Cart" aria-label="Add Electric Reef Long Sleeve Shirt to cart">Add to Cart</button></div></div>
           </article>
           <article class="prod" data-id="bw-hoodie">
-            <div class="prod-img"><img class="front" src="assets/bluewater-hoodie.png" alt="Bluewater Hoodie, front" loading="lazy"></div>
-            <div class="prod-meta"><div class="pname">Bluewater Hoodie</div><div class="pcat">Hooded · UPF 50+</div><div class="prow"><span class="price">$109</span><button class="add-btn" data-add="bw-hoodie" aria-label="Add Bluewater Hoodie to cart">Add to Cart</button></div></div>
+            <a class="prod-img" href="product.html?id=bw-hoodie"><img class="front" src="assets/bluewater-hoodie.png" alt="Bluewater Hooded Shirt, front" loading="lazy"></a>
+            <div class="prod-meta"><a class="pname" href="product.html?id=bw-hoodie">Bluewater</a><div class="pcat">Hooded Shirt</div><div class="prow"><span class="price">$89.95 AUD</span><button class="add-btn" data-add="bw-hoodie" data-label="Add to Cart" aria-label="Add Bluewater Hooded Shirt to cart">Add to Cart</button></div></div>
           </article>
         </div>
         <div class="carousel-nav">
@@ -598,25 +590,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
   </div>
 </footer>
 
-<!-- Cart drawer -->
-<div class="cart-overlay" id="cartOverlay"></div>
-<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
-  <div class="cart-head">
-    <h3>Your Cart<span class="cart-qty-label" id="cartQtyLabel"></span></h3>
-    <button class="cart-close" id="cartClose" aria-label="Close cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></button>
-  </div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-foot">
-    <div class="ship-bar">
-      <div class="ship-msg" id="shipMsg"></div>
-      <div class="ship-track"><div class="ship-fill" id="shipFill"></div></div>
-    </div>
-    <div class="cart-subtotal"><span class="lbl">Subtotal</span><span class="amt" id="cartSubtotal">$0</span></div>
-    <div class="cart-note">Shipping and taxes calculated at checkout.</div>
-    <button class="btn btn-primary checkout-btn" id="checkoutBtn">Checkout</button>
-  </div>
-</aside>
-
 <script>
 (function(){
   var nav=document.getElementById('nav');
@@ -632,6 +605,21 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
   } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
 
+
+  // Mobile menu
+  var mt=document.getElementById('menuToggle'), mm=document.getElementById('mobileMenu');
+  if(mt&&mm){
+    mt.addEventListener('click',function(){
+      var open=mm.classList.toggle('open');
+      document.body.classList.toggle('menu-open',open);
+      mt.setAttribute('aria-expanded',String(open));
+      mm.setAttribute('aria-hidden',String(!open));
+    });
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+      mm.classList.remove('open');document.body.classList.remove('menu-open');
+    });});
+  }
+
   // Carousel
   var track=document.getElementById('track');
   var prev=document.getElementById('prev'), next=document.getElementById('next');
@@ -646,102 +634,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacin
   dots.addEventListener('click',function(e){ var ds=[].slice.call(dots.children); var i=ds.indexOf(e.target); if(i>=0) track.scrollTo({left:step()*i,behavior:'smooth'}); });
 })();
 
-/* ===== Cart ===== */
-(function(){
-  var CATALOG={
-    "rr-shirt":{name:"Ribbon Reef Shirt",price:89,img:"assets/ribbonreef-front.png"},
-    "rr-hoodie":{name:"Ribbon Reef Hoodie",price:109,img:"assets/ribbonreef-hoodie.png"},
-    "rr-shorts":{name:"Ribbon Reef Shorts",price:69,img:"assets/ribbonreef-shorts.png"},
-    "rr-buff":{name:"Ribbon Reef Buff",price:29,img:"assets/ribbonreef-buff.png"},
-    "bw-shirt":{name:"Bluewater Shirt",price:89,img:"assets/bluewater-front.png"},
-    "bw-hoodie":{name:"Bluewater Hoodie",price:109,img:"assets/bluewater-hoodie.png"},
-    "tt-shirt":{name:"Tropic Tide Shirt",price:89,img:"assets/tropictide-front.png"},
-    "sc-shirt":{name:"Sunset Current Shirt",price:89,img:"assets/sunsetcurrent-front.png"},
-    "cg-shirt":{name:"Coral Garden Shirt",price:89,img:"assets/coralgarden-front.png"},
-    "rt-shirt":{name:"Reef Topography Shirt",price:89,img:"assets/reeftopo-front.png"},
-    "mg-shirt":{name:"Mangrove Roots Shirt",price:89,img:"assets/mangrove-front.png"},
-    "er-shirt":{name:"Electric Reef Shirt",price:89,img:"assets/electricreef-front.png"}
-  };
-  var FREE_SHIP=150, KEY="cc_cart_v1";
-  var mem={};
-  function load(){ try{ var raw=localStorage.getItem(KEY); return raw?JSON.parse(raw):{} }catch(e){ return mem } }
-  function save(c){ try{ localStorage.setItem(KEY,JSON.stringify(c)) }catch(e){ mem=c } }
-  var cart=load();
-
-  var drawer=document.getElementById("cartDrawer"),
-      overlay=document.getElementById("cartOverlay"),
-      itemsEl=document.getElementById("cartItems"),
-      countEl=document.getElementById("cartCount"),
-      subEl=document.getElementById("cartSubtotal"),
-      qtyLabel=document.getElementById("cartQtyLabel"),
-      shipMsg=document.getElementById("shipMsg"),
-      shipFill=document.getElementById("shipFill");
-
-  function fmt(n){ return "$"+(n%1?n.toFixed(2):n) }
-  function totals(){
-    var qty=0,sub=0;
-    Object.keys(cart).forEach(function(id){ qty+=cart[id]; sub+=cart[id]*CATALOG[id].price; });
-    return {qty:qty,sub:sub};
-  }
-  function render(){
-    var t=totals();
-    countEl.textContent=t.qty;
-    qtyLabel.textContent=t.qty? "("+t.qty+" item"+(t.qty>1?"s":"")+")" : "";
-    subEl.textContent=fmt(t.sub);
-    if(t.qty===0){
-      itemsEl.innerHTML='<div class="cart-empty"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 8h12l-1 12H7L6 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg>Your cart is empty.<br>Time to find your reef.</div>';
-    } else {
-      itemsEl.innerHTML=Object.keys(cart).map(function(id){
-        var p=CATALOG[id],q=cart[id];
-        return '<div class="cart-item" data-id="'+id+'">'
-          +'<div class="cart-item-img"><img src="'+p.img+'" alt="'+p.name+'"></div>'
-          +'<div><div class="cart-item-name">'+p.name+'</div><div class="cart-item-price">'+fmt(p.price)+'</div>'
-          +'<div class="qty-row"><button class="qty-btn" data-dec="'+id+'" aria-label="Decrease quantity">−</button>'
-          +'<span class="qty-val">'+q+'</span>'
-          +'<button class="qty-btn" data-inc="'+id+'" aria-label="Increase quantity">+</button>'
-          +'<button class="cart-item-remove" data-remove="'+id+'">Remove</button></div></div>'
-          +'<div class="cart-item-line">'+fmt(p.price*q)+'</div></div>';
-      }).join("");
-    }
-    var pct=Math.min(100,(t.sub/FREE_SHIP)*100);
-    shipFill.style.width=pct+"%";
-    shipFill.classList.toggle("free",t.sub>=FREE_SHIP);
-    shipMsg.innerHTML = t.sub>=FREE_SHIP
-      ? "<b>You\u2019ve unlocked free shipping!</b>"
-      : "You\u2019re <b>"+fmt(FREE_SHIP-t.sub)+"</b> away from free Australia-wide shipping.";
-    save(cart);
-  }
-  function openCart(){ drawer.classList.add("open"); overlay.classList.add("open"); document.body.style.overflow="hidden"; }
-  function closeCart(){ drawer.classList.remove("open"); overlay.classList.remove("open"); document.body.style.overflow=""; }
-
-  document.getElementById("cartBtn").addEventListener("click",openCart);
-  document.getElementById("cartClose").addEventListener("click",closeCart);
-  overlay.addEventListener("click",closeCart);
-  document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeCart(); });
-
-  document.addEventListener("click",function(e){
-    var add=e.target.closest("[data-add]");
-    if(add){
-      var id=add.getAttribute("data-add");
-      cart[id]=(cart[id]||0)+1; render();
-      add.classList.add("added"); add.textContent="Added ✓";
-      setTimeout(function(){ add.classList.remove("added"); add.textContent="Add to Cart"; },1200);
-      openCart();
-      return;
-    }
-    var inc=e.target.closest("[data-inc]");
-    if(inc){ var id2=inc.getAttribute("data-inc"); cart[id2]++; render(); return; }
-    var dec=e.target.closest("[data-dec]");
-    if(dec){ var id3=dec.getAttribute("data-dec"); cart[id3]--; if(cart[id3]<=0) delete cart[id3]; render(); return; }
-    var rem=e.target.closest("[data-remove]");
-    if(rem){ delete cart[rem.getAttribute("data-remove")]; render(); return; }
-  });
-  document.getElementById("checkoutBtn").addEventListener("click",function(){
-    this.textContent="Checkout coming soon";
-    var b=this; setTimeout(function(){ b.textContent="Checkout"; },1600);
-  });
-  render();
-})();
 </script>
+<script src="assets/cart.js"></script>
 </body>
 </html>
