@@ -267,7 +267,7 @@ body.menu-open{overflow:hidden}
   var size=hasSizes?"M":null;
 
   document.title=p.name+" "+p.sub+" — Coral & Cord";
-  document.getElementById("crumbs").innerHTML='<a href="index.html">Home</a> &nbsp;/&nbsp; <a href="collections.html?cat='+p.catKey+'">'+p.cat+'</a> &nbsp;/&nbsp; '+p.name;
+  document.getElementById("crumbs").innerHTML='<a href="index.html">Home</a> &nbsp;/&nbsp; <a href="collections.html?cat='+p.catKey+'">'+p.cat+'</a> &nbsp;/&nbsp; <a href="collection.html?c='+p.slug+'">'+p.collection+'</a> &nbsp;/&nbsp; '+p.sub;
   document.getElementById("pCat").textContent=p.sub;
   document.getElementById("pName").textContent=p.name;
   document.getElementById("pPrice").textContent=C.fmt(p.price)+" AUD";
