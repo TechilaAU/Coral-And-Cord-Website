@@ -1,6 +1,7 @@
 /* Coral & Cord — shared catalog + cart drawer. Include once per page. */
 (function(){
 "use strict";
+var ROOT=(function(){try{var sc=document.currentScript||document.querySelector('script[src*="cart.js"]');return sc.src.replace(/assets\/cart\.js.*$/,"");}catch(e){return "";}})();
 
 /* ---------- Catalog ---------- */
 var COLLECTIONS={
@@ -19,15 +20,15 @@ var TYPES={
   shorts:{label:"Boardshorts",cat:"Shorts",price:69.95,catKey:"shorts"},
   buff:{label:"Performance Buff",cat:"Buffs",price:34.95,catKey:"buffs"}
 };
-var PATTERN_IMG={reeftopo:"assets/pat_topo.jpg",mangrove:"assets/pat_mangrove.jpg"};
+var PATTERN_IMG={reeftopo:ROOT+"assets/pat_topo.jpg",mangrove:ROOT+"assets/pat_mangrove.jpg"};
 var CATALOG={};
 Object.keys(COLLECTIONS).forEach(function(slug){
   var c=COLLECTIONS[slug];
   Object.keys(TYPES).forEach(function(t){
     var T=TYPES[t], id=c.key+"-"+t;
     var imgs;
-    if(t==="shirt"){ imgs=["assets/"+slug+"-front.png","assets/"+slug+"-back.png"]; }
-    else { imgs=["assets/"+slug+"-"+t+".png"]; }
+    if(t==="shirt"){ imgs=[ROOT+"assets/"+slug+"-front.png",ROOT+"assets/"+slug+"-back.png"]; }
+    else { imgs=[ROOT+"assets/"+slug+"-"+t+".png"]; }
     if(PATTERN_IMG[slug]) imgs.push(PATTERN_IMG[slug]);
     CATALOG[id]={
       id:id, collection:c.name, slug:slug, type:t,

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reef Topography Boardshorts — Coral & Cord</title>
+<meta name="description" content="Reef Topography Boardshorts — UPF 50+ technical fishing apparel with hand drawn reef artwork. $69.95 AUD, free shipping over $150.">
+<style>
+@font-face{font-family:"Cormorant Garamond";src:url("../../assets/fonts/cormorant.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Manrope";src:url("../../assets/fonts/manrope.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+:root{
+  --navy:#0F2B46;--ocean:#123F56;--reef:#2E7D8D;--aqua:#65C9D6;--sand:#E8DCC7;--coral:#E86F51;
+  --seafoam:#C7D8D5;--white:#F8F8F6;--bg:#F4EFEA;--ink:#16303f;--muted:#5c6b73;
+  --line:rgba(15,43,70,.12);--shadow-soft:0 18px 40px -24px rgba(15,43,70,.28);
+  --serif:"Cormorant Garamond",Georgia,serif;--sans:"Manrope",sans-serif;
+  --maxw:1280px;--ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+.announce{background:var(--navy);color:rgba(248,248,246,.9);text-align:center;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:11px 20px}
+/* Header */
+.hdr{background:var(--navy);color:var(--white);position:sticky;top:0;z-index:50}
+.hdr-inner{position:relative;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;max-width:var(--maxw);margin:0 auto}
+.logo{display:flex;flex-direction:column;gap:3px}
+.lg-top{display:inline-flex;align-items:center;gap:.45em;font-family:var(--serif);font-weight:600;font-size:1.5rem;letter-spacing:.1em;line-height:1}
+.lg-anchor{width:.82em;height:.82em;flex:none;color:var(--coral)}
+.lg-sub{font-size:.5rem;font-weight:600;letter-spacing:.42em;text-transform:uppercase;opacity:.85;padding-left:2px}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.92;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1.5px;background:var(--coral);transition:right .35s var(--ease)}
+.nav-links a:hover::after{right:0}
+.hdr-icons{display:flex;gap:20px;align-items:center}
+.hdr-icons button{background:none;border:none;color:inherit;cursor:pointer;display:flex;position:relative;padding:2px}
+.cart-count{position:absolute;top:-7px;right:-9px;background:var(--coral);color:#fff;font-size:.58rem;font-weight:700;width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-toggle{display:none;background:none;border:none;color:inherit;cursor:pointer}
+.mobile-menu{position:fixed;inset:0;background:var(--navy);z-index:45;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu nav{display:flex;flex-direction:column;gap:26px;text-align:center}
+.mobile-menu a{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--white)}
+body.menu-open{overflow:hidden}
+/* mini benefits bar */
+.mini{background:var(--ocean);color:rgba(248,248,246,.92)}
+.mini .wrap{display:flex;gap:34px;justify-content:center;padding:11px 40px;flex-wrap:wrap}
+.mini span{display:inline-flex;align-items:center;gap:8px;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+/* breadcrumbs */
+.crumbs{font-size:.78rem;color:var(--muted);padding:20px 0 6px}
+.crumbs a:hover{color:var(--coral)}
+/* product layout */
+.pd{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;padding:16px 0 60px}
+.gallery{display:grid;grid-template-columns:86px 1fr;gap:16px;align-items:start}
+.thumbs{display:flex;flex-direction:column;gap:12px}
+.thumbs button{border:2px solid transparent;border-radius:12px;overflow:hidden;background:#fff;cursor:pointer;padding:0;aspect-ratio:.86;box-shadow:0 0 0 1px var(--line)}
+.thumbs button.cur{border-color:var(--coral)}
+.thumbs img{width:100%;height:100%;object-fit:contain;padding:8%}
+.main-img{background:#fff;border-radius:18px;box-shadow:var(--shadow-soft);aspect-ratio:.92;overflow:hidden;position:relative}
+.main-img img{width:100%;height:100%;object-fit:contain;padding:7%;transition:opacity .3s}
+/* info column */
+.info .cat{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.info h1{font-size:clamp(2.2rem,4vw,3rem);margin:.5rem 0 .5rem}
+.stars{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted);margin-bottom:1.1rem}
+.stars svg{color:var(--coral)}
+.price{font-size:1.5rem;font-weight:700;color:var(--navy)}
+.pay{font-size:.78rem;color:var(--muted);margin:4px 0 1.6rem}
+.pay b{color:var(--navy)}
+.sel-label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--navy);margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline}
+.sel-label .sg{font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.swatch-row{display:flex;gap:12px;margin-bottom:1.5rem}
+.swatch{width:30px;height:30px;border-radius:50%;box-shadow:0 0 0 1px var(--line);cursor:default;position:relative}
+.swatch.cur::after{content:"";position:absolute;inset:-5px;border:1.6px solid var(--coral);border-radius:50%}
+.sizes{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.7rem}
+.sizes button{min-width:52px;height:42px;padding:0 12px;border-radius:9px;border:1.5px solid var(--line);background:#fff;font:inherit;font-size:.8rem;font-weight:600;color:var(--ink);cursor:pointer;transition:all .25s}
+.sizes button.cur{background:var(--navy);border-color:var(--navy);color:#fff}
+.sizes button:hover{border-color:var(--navy)}
+.cta{display:flex;flex-direction:column;gap:12px;margin-bottom:1.8rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;height:52px;border-radius:8px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border:1.5px solid transparent;transition:all .35s var(--ease);font-family:var(--sans)}
+.btn-add{background:var(--coral);color:#fff}
+.btn-add:hover{background:var(--navy)}
+.btn-add.added{background:var(--reef)}
+.btn-buy{background:transparent;border-color:var(--navy);color:var(--navy)}
+.btn-buy:hover{background:var(--navy);color:#fff}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);padding-top:20px;gap:8px}
+.trust div{text-align:center;color:var(--navy)}
+.trust svg{margin:0 auto 6px;display:block;opacity:.8}
+.trust b{display:block;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase}
+.trust span{font-size:.62rem;color:var(--muted)}
+/* tabs */
+.tabs{border-top:1px solid var(--line);padding:34px 0 60px}
+.tab-nav{display:flex;gap:28px;border-bottom:1px solid var(--line);margin-bottom:26px;flex-wrap:wrap}
+.tab-nav button{background:none;border:none;font:inherit;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:0 0 13px;position:relative}
+.tab-nav button.cur{color:var(--navy)}
+.tab-nav button.cur::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--coral)}
+.tab-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.tab-body p{color:var(--muted);margin-bottom:1rem;max-width:52ch}
+.tab-body ul{list-style:none}
+.tab-body li{padding:6px 0 6px 26px;position:relative;color:var(--ink);font-size:.92rem}
+.tab-body li::before{content:"✓";position:absolute;left:0;color:var(--reef);font-weight:700}
+.tab-img{border-radius:16px;overflow:hidden;box-shadow:var(--shadow-soft)}
+.tab-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:1.55}
+/* related */
+.rel{background:var(--bg);border-top:1px solid var(--line);padding:56px 0 70px}
+.rel h2{font-size:1.9rem;margin-bottom:24px}
+.rel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-soft)}
+.pcard .pimg{aspect-ratio:1/1.05;background:#fff;display:block}
+.pcard .pimg img{width:100%;height:100%;object-fit:contain;padding:9%}
+.pbody{padding:14px 16px 16px;text-align:center}
+.pbody .pnm{font-family:var(--serif);font-size:1.15rem;font-weight:600;display:block}
+.pbody .psub{font-size:.74rem;color:var(--muted)}
+.pbody .pprice{font-weight:700;font-size:.85rem;color:var(--navy);display:block;margin-top:6px}
+/* footer */
+.footer{background:var(--navy);color:rgba(248,248,246,.72);padding:70px 0 30px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1.1fr 1fr 1.4fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-brand .lg-top{color:#fff}
+.foot-brand p{font-size:.85rem;margin-top:1rem;max-width:30ch;line-height:1.7}
+.foot-col h5{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-bottom:1.2rem;font-weight:700}
+.foot-col a{display:block;font-size:.85rem;margin-bottom:.65rem;transition:color .3s}
+.foot-col a:hover{color:var(--aqua)}
+.tide p{font-size:.82rem;margin:0 0 14px;line-height:1.7}
+.tide-form{display:flex}
+.tide-form input{flex:1;height:44px;border:none;border-radius:6px 0 0 6px;padding:0 14px;font:inherit;font-size:.85rem}
+.tide-form button{width:48px;height:44px;border:none;border-radius:0 6px 6px 0;background:var(--coral);color:#fff;cursor:pointer;font-size:1rem}
+.foot-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:.72rem;flex-wrap:wrap;gap:12px}
+@media(max-width:1024px){.nav-links{display:none}.nav-toggle{display:flex}.rel-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){
+  .pd{grid-template-columns:1fr;gap:34px}
+  .gallery{grid-template-columns:1fr;grid-template-rows:auto auto}
+  .thumbs{flex-direction:row;order:2}
+  .thumbs button{width:72px}
+  .tab-grid{grid-template-columns:1fr}
+}
+@media(max-width:820px){.wrap{padding:0 22px}.hdr-inner{padding:14px 22px}.mini .wrap{gap:16px;justify-content:flex-start}.foot-top{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.rel-grid{grid-template-columns:1fr 1fr;gap:12px}.trust{grid-template-columns:repeat(2,1fr);gap:16px}.foot-top{grid-template-columns:1fr}}
+
+/* ===== Mobile touch-up ===== */
+@media(max-width:700px){
+  .announce{font-size:.56rem;letter-spacing:.13em;padding:8px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+</style>
+<link rel="canonical" href="https://techilaau.github.io/Coral-And-Cord-Website/products/rt-shorts/">
+<meta property="og:site_name" content="Coral &amp; Cord">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reef Topography Boardshorts — Coral & Cord">
+<meta property="og:description" content="Reef Topography Boardshorts — UPF 50+ technical fishing apparel with hand drawn reef artwork. $69.95 AUD, free shipping over $150.">
+<meta property="og:url" content="https://techilaau.github.io/Coral-And-Cord-Website/products/rt-shorts/">
+<meta property="og:image" content="https://techilaau.github.io/Coral-And-Cord-Website/assets/reeftopo-shorts.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reef Topography Boardshorts — Coral & Cord">
+<meta name="twitter:image" content="https://techilaau.github.io/Coral-And-Cord-Website/assets/reeftopo-shorts.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Reef Topography Boardshorts", "image": ["https://techilaau.github.io/Coral-And-Cord-Website/assets/reeftopo-shorts.png"], "description": "Reef Topography Boardshorts with reef-inspired artwork. UPF 50+ sun protection, moisture wicking, quick dry.", "brand": {"@type": "Brand", "name": "Coral & Cord"}, "offers": {"@type": "Offer", "priceCurrency": "AUD", "price": "69.95", "availability": "https://schema.org/InStock", "url": "https://techilaau.github.io/Coral-And-Cord-Website/products/rt-shorts/"}}</script>
+</head>
+<body>
+<div class="announce">Free shipping on orders over $150 — Australia wide</div>
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="../../" class="logo" aria-label="Coral and Cord home">
+      <span class="lg-top">CORAL<svg class="lg-anchor" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="8" r="3.2"/><path d="M20 11.2v22"/><path d="M12 18h16"/><path d="M9 26c0 5.5 5.5 8 11 8s11-2.5 11-8"/><path d="M9 26l-3 2.6M9 26l3 2.6M31 26l3 2.6M31 26l-3 2.6"/></svg>CORD</span>
+      <span class="lg-sub">Fishing Apparel</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../../shop/?cat=shirts">Fishing Shirts</a></li>
+      <li><a href="../../shop/?cat=shorts">Shorts</a></li>
+      <li><a href="../../shop/?cat=buffs">Buffs</a></li>
+      <li><a href="../../shop/">Collections</a></li>
+      <li><a href="../../journal/">Journal</a></li>
+      <li><a href="../../about/">About</a></li>
+    </ul>
+    <div class="hdr-icons">
+      <button aria-label="Search"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg></button>
+      <button aria-label="Account"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke-linecap="round"/></svg></button>
+      <button aria-label="Cart" id="cartBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg><span class="cart-count">0</span></button>
+      <button class="nav-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav>
+      <a href="../../shop/">Shop All</a>
+      <a href="../../shop/?cat=shirts">Fishing Shirts</a>
+      <a href="../../shop/?cat=hoodies">Hooded Shirts</a>
+      <a href="../../shop/?cat=shorts">Shorts</a>
+      <a href="../../shop/?cat=buffs">Buffs</a>
+      <a href="../../journal/">Journal</a>
+      <a href="../../about/">About</a>
+      <a href="../../care/">Customer Care</a>
+      <a href="../../about/">Our Story</a>
+    </nav>
+  </div>
+</header>
+<div class="mini">
+  <div class="wrap">
+    <span>☀ UPF 50+ Sun Protection</span><span>💧 Moisture Wicking</span><span>≋ Quick Dry Performance</span><span>⚓ Built for the Reef</span>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="crumbs" id="crumbs"></div>
+  <div class="pd">
+    <div class="gallery">
+      <div class="thumbs" id="thumbs"></div>
+      <div class="main-img"><img id="mainImg" src="" alt=""></div>
+    </div>
+    <div class="info">
+      <span class="cat" id="pCat"></span>
+      <h1 id="pName"></h1>
+      <div class="stars">
+        <svg width="88" height="15" viewBox="0 0 100 17" fill="currentColor"><path d="M8.5 0l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.7-5.2 2.7 1-5.8L0 6.2l5.9-.9zM29.5 0l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9zM50.5 0l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9zM71.5 0l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9zM92.5 0l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>
+        <span>4.9 (128 reviews)</span>
+      </div>
+      <div class="price" id="pPrice"></div>
+      <div class="pay" id="pPay"></div>
+      <div class="sel-label">Colour: <span id="pColour" style="text-transform:none;letter-spacing:.02em"></span></div>
+      <div class="swatch-row" id="swatchRow"></div>
+      <div class="sel-label" id="sizeLabelRow">Size: <span class="sg">Size Guide →</span></div>
+      <div class="sizes" id="sizes"></div>
+      <div class="cta">
+        <button class="btn btn-add" id="addBtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l-1 12H7L6 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg>Add to Cart</button>
+        <button class="btn btn-buy" id="buyBtn">Buy It Now</button>
+      </div>
+      <div class="trust">
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9h18M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg><b>Free Shipping</b><span>On orders over $150</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 12a8 8 0 1 1 2.3 5.7"/><path d="M4 18v-6h6"/></svg><b>Easy Returns</b><span>30 day returns</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><b>Secure Payment</b><span>SSL encrypted</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M5 10c2-2 3-1 4.5-2S10 5 12 5s2 2 3.5 2.5S19 8 20 10s-1 3-1.5 4.5.5 3-1.5 4-3-1-4.5-1-3 2-4.5 1-.5-3-1.5-4.5S3 12 5 10z"/></svg><b>Designed in</b><span>Australia</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab-nav" id="tabNav">
+      <button class="cur" data-tab="desc">Description</button>
+      <button data-tab="feat">Features</button>
+      <button data-tab="fab">Fabric &amp; Care</button>
+      <button data-tab="ship">Shipping &amp; Returns</button>
+    </div>
+    <div class="tab-grid">
+      <div class="tab-body" id="tabBody"></div>
+      <div class="tab-img"><img id="tabImg" src="" alt="Fabric pattern close-up"></div>
+    </div>
+  </div>
+</main>
+
+<section class="rel">
+  <div class="wrap">
+    <h2>You May Also Like</h2>
+    <div class="rel-grid" id="relGrid"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="lg-top">CORAL<svg class="lg-anchor" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="8" r="3.2"/><path d="M20 11.2v22"/><path d="M12 18h16"/><path d="M9 26c0 5.5 5.5 8 11 8s11-2.5 11-8"/><path d="M9 26l-3 2.6M9 26l3 2.6M31 26l3 2.6M31 26l-3 2.6"/></svg>CORD</span>
+        <p>Inspired by the reef. Built for adventure. Made for life on the water.</p>
+      </div>
+      <div class="foot-col"><h5>Shop</h5><a href="../../shop/?cat=shirts">Fishing Shirts</a><a href="../../shop/?cat=shorts">Shorts</a><a href="../../shop/?cat=buffs">Buffs</a><a href="../../shop/">Collections</a></div><div class="foot-col"><h5>Collections</h5><a href="../../collections/bluewater/">Bluewater</a><a href="../../collections/mangrove/">Mangrove Roots</a><a href="../../collections/reeftopo/">Reef Topography</a><a href="../../collections/ribbonreef/">Ribbon Reef</a><a href="../../collections/sunsetcurrent/">Sunset Current</a><a href="../../collections/electricreef/">Electric Reef</a><a href="../../collections/coralgarden/">Coral Garden</a><a href="../../collections/tropictide/">Tropic Tide</a></div>
+      <div class="foot-col"><h5>Help</h5><a href="../../care/#shipping">Shipping</a><a href="../../care/#returns">Returns</a><a href="../../care/#size-guide">Size Guide</a><a href="../../care/#contact">Contact</a></div>
+      <div class="foot-col tide"><h5>Join the Tide</h5><p>Sign up for exclusive offers, new releases and stories from the reef.</p>
+        <form class="tide-form" onsubmit="this.querySelector('button').textContent='✓';return false"><input type="email" placeholder="Enter your email" aria-label="Email address" required><button type="submit" aria-label="Subscribe">→</button></form>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Coral &amp; Cord. All rights reserved.</span><span>Privacy Policy &nbsp;·&nbsp; Terms &amp; Conditions</span></div>
+  </div>
+</footer>
+
+<script src="../../assets/cart.js"></script>
+<script>
+(function(){
+  var C=window.CC;
+  var id="rt-shorts";
+  if(!C.CATALOG[id]) id="rt-shirt";
+  var p=C.CATALOG[id];
+  var hasSizes=(p.type==="shirt"||p.type==="hoodie"||p.type==="shorts");
+  var size=hasSizes?"M":null;
+
+  document.title=p.name+" "+p.sub+" — Coral & Cord";
+  document.getElementById("crumbs").innerHTML='<a href="../../">Home</a> &nbsp;/&nbsp; <a href="../../shop/?cat='+p.catKey+'">'+p.cat+'</a> &nbsp;/&nbsp; <a href="../../collections/'+p.slug+'/">'+p.collection+'</a> &nbsp;/&nbsp; '+p.sub;
+  document.getElementById("pCat").textContent=p.sub;
+  document.getElementById("pName").textContent=p.name;
+  document.getElementById("pPrice").textContent=C.fmt(p.price)+" AUD";
+  document.getElementById("pPay").innerHTML="or 4 payments of <b>"+C.fmt(p.price/4)+"</b> with Afterpay";
+  document.getElementById("pColour").textContent=p.collection;
+  var sw=document.getElementById("swatchRow");
+  sw.innerHTML='<span class="swatch cur" style="background:'+p.accent+'" title="'+p.collection+'"></span>';
+
+  // sizes
+  var sizesEl=document.getElementById("sizes");
+  if(hasSizes){
+    ["S","M","L","XL","2XL","3XL"].forEach(function(sz){
+      var b=document.createElement("button"); b.textContent=sz;
+      if(sz===size) b.classList.add("cur");
+      b.addEventListener("click",function(){
+        size=sz;
+        sizesEl.querySelectorAll("button").forEach(function(x){x.classList.remove("cur")});
+        b.classList.add("cur");
+      });
+      sizesEl.appendChild(b);
+    });
+  } else {
+    document.getElementById("sizeLabelRow").style.display="none";
+    sizesEl.style.display="none";
+  }
+
+  // gallery
+  var main=document.getElementById("mainImg"), thumbs=document.getElementById("thumbs");
+  function setMain(src,btn){
+    main.src=src; main.alt=p.name+" "+p.sub;
+    thumbs.querySelectorAll("button").forEach(function(x){x.classList.remove("cur")});
+    if(btn) btn.classList.add("cur");
+  }
+  p.imgs.forEach(function(src,i){
+    var b=document.createElement("button");
+    b.innerHTML='<img src="'+src+'" alt="View '+(i+1)+'" loading="lazy">';
+    if(i===0) b.classList.add("cur");
+    b.addEventListener("click",function(){ setMain(src,b); });
+    thumbs.appendChild(b);
+  });
+  setMain(p.imgs[0], thumbs.querySelector("button"));
+
+  // add / buy
+  function idq(){ return size? p.id+"|"+size : p.id; }
+  var addBtn=document.getElementById("addBtn");
+  addBtn.addEventListener("click",function(){
+    C.add(idq());
+    addBtn.classList.add("added"); addBtn.textContent="Added to Cart ✓";
+    setTimeout(function(){ addBtn.classList.remove("added");
+      addBtn.innerHTML='<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l-1 12H7L6 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg>Add to Cart';
+    },1400);
+  });
+  document.getElementById("buyBtn").addEventListener("click",function(){ C.add(idq()); });
+
+  // tabs
+  var descs={
+    desc:'<p>The '+p.name+' '+p.sub.toLowerCase()+' is inspired by the intricate contours and natural beauty found beneath the surface. Designed for long days on the water, it offers premium sun protection, breathability and all-day comfort.</p><ul><li>UPF 50+ sun protection</li><li>Moisture wicking, quick dry fabric</li><li>4-way stretch for unrestricted movement</li><li>Odour resistant and anti-microbial</li><li>Lightweight and breathable for all conditions</li></ul>',
+    feat:'<ul><li>Laser-vented breathable panels</li><li>Flatlock seams for all-day comfort</li><li>Hidden sunglasses cloth</li><li>Concealed zip pocket</li><li>YKK zip collar for added ventilation</li><li>Premium ribbed cuffs</li></ul>',
+    fab:'<p>92% recycled polyester, 8% elastane. 165gsm performance knit.</p><ul><li>Cold machine wash with like colours</li><li>Do not bleach or tumble dry</li><li>Line dry in shade</li><li>Cool iron on reverse if needed</li></ul>',
+    ship:'<p>Free Australia-wide shipping on orders over $150. Standard delivery 3–7 business days; express available at checkout.</p><ul><li>30 day returns on full priced items</li><li>Items must be unworn with tags attached</li><li>Easy online returns portal</li></ul>'
+  };
+  var tabBody=document.getElementById("tabBody");
+  tabBody.innerHTML=descs.desc;
+  document.getElementById("tabNav").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    this.querySelectorAll("button").forEach(function(x){x.classList.remove("cur")});
+    b.classList.add("cur"); tabBody.innerHTML=descs[b.getAttribute("data-tab")];
+  });
+  var patMap={reeftopo:"../../assets/pat_topo.jpg",mangrove:"../../assets/pat_mangrove.jpg",ribbonreef:"../../assets/pat_mandala.jpg",bluewater:"../../assets/pat_whaleshark.jpg",tropictide:"../../assets/pat_gt.jpg",sunsetcurrent:"../../assets/pat_trout.jpg",coralgarden:"../../assets/pat_mandala.jpg",electricreef:"../../assets/pat_trout.jpg"};
+  document.getElementById("tabImg").src=patMap[p.slug]||"../../assets/pat_topo.jpg";
+
+  // related: same collection first, then same type
+  var all=Object.values(C.CATALOG);
+  var rel=all.filter(function(x){return x.slug===p.slug && x.id!==p.id});
+  all.filter(function(x){return x.type===p.type && x.slug!==p.slug}).forEach(function(x){ if(rel.length<4) rel.push(x); });
+  document.getElementById("relGrid").innerHTML=rel.slice(0,4).map(function(x){
+    return '<a class="pcard" href="../../products/'+x.id+'/">'
+      +'<span class="pimg"><img src="'+x.img+'" alt="'+x.name+' '+x.sub+'" loading="lazy"></span>'
+      +'<span class="pbody"><span class="pnm">'+x.name+'</span><span class="psub">'+x.sub+'</span><span class="pprice">'+C.fmt(x.price)+' AUD</span></span></a>';
+  }).join("");
+
+  // mobile menu
+  var mt=document.getElementById("menuToggle"), mm=document.getElementById("mobileMenu");
+  mt.addEventListener("click",function(){
+    var open=mm.classList.toggle("open");
+    document.body.classList.toggle("menu-open",open);
+    mt.setAttribute("aria-expanded",String(open)); mm.setAttribute("aria-hidden",String(!open));
+  });
+})();
+</script>
+</body>
+</html>

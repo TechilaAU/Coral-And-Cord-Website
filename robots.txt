@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://techilaau.github.io/Coral-And-Cord-Website/sitemap.xml
