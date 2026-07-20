@@ -192,6 +192,8 @@ for fp in _g.glob("**/index.html", recursive=True) + ["index.html"]:
     txt = re.sub(r'<a href="[^"]*collections/reeftopo/">Reef Topography</a>', "", txt)
     txt = re.sub(r'<a href="[^"]*collections/coralgarden/">Coral Garden</a>', "", txt)
     txt = re.sub(r'<article class="prod" data-id="(?:rt|cg)-[a-z]+">.*?</article>\s*', "", txt, flags=re.S)
+    if fp.endswith("about/index.html"):
+        txt = txt.replace("url('../assets/story_reef.jpg') center/cover", "url('../assets/about-hero.jpg') center/cover")
     txt = txt.replace('id="rt-shirt"', 'id="rr-shirt"')
     for sl in ("bluewater","electricreef","ribbonreef"):
         for t in ("front","back","hoodie","shorts","buff"):
