@@ -9,8 +9,6 @@ var COLLECTIONS={
   bluewater:{key:"bw",name:"Bluewater",accent:"#123F56"},
   tropictide:{key:"tt",name:"Tropic Tide",accent:"#65C9D6"},
   sunsetcurrent:{key:"sc",name:"Sunset Current",accent:"#E86F51"},
-  coralgarden:{key:"cg",name:"Coral Garden",accent:"#C7D8D5"},
-  reeftopo:{key:"rt",name:"Reef Topography",accent:"#0F2B46"},
   mangrove:{key:"mg",name:"Mangrove Roots",accent:"#5C6B3C"},
   electricreef:{key:"er",name:"Electric Reef",accent:"#B0447E"}
 };
@@ -20,14 +18,18 @@ var TYPES={
   shorts:{label:"Boardshorts",cat:"Shorts",price:69.95,catKey:"shorts"},
   buff:{label:"Performance Buff",cat:"Buffs",price:34.95,catKey:"buffs"}
 };
-var PATTERN_IMG={reeftopo:ROOT+"assets/pat_topo.jpg",mangrove:ROOT+"assets/pat_mangrove.jpg"};
+var PATTERN_IMG={mangrove:ROOT+"assets/pat_mangrove.jpg"};
 var CATALOG={};
 Object.keys(COLLECTIONS).forEach(function(slug){
   var c=COLLECTIONS[slug];
   Object.keys(TYPES).forEach(function(t){
     var T=TYPES[t], id=c.key+"-"+t;
     var imgs;
-    if(t==="shirt"){ imgs=[ROOT+"assets/"+slug+"-front.png",ROOT+"assets/"+slug+"-back.png"]; }
+    var NEWSET={bluewater:1,electricreef:1,ribbonreef:1};
+    if(NEWSET[slug]){
+      if(t==="shirt"){ imgs=[ROOT+"assets/"+slug+"-front.jpg",ROOT+"assets/"+slug+"-back.jpg"]; }
+      else { imgs=[ROOT+"assets/"+slug+"-"+t+".jpg",ROOT+"assets/"+slug+"-"+t+"-back.jpg"]; }
+    } else if(t==="shirt"){ imgs=[ROOT+"assets/"+slug+"-front.png",ROOT+"assets/"+slug+"-back.png"]; }
     else { imgs=[ROOT+"assets/"+slug+"-"+t+".png"]; }
     if(PATTERN_IMG[slug]) imgs.push(PATTERN_IMG[slug]);
     CATALOG[id]={

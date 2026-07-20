@@ -7,11 +7,9 @@ BASE = "https://techilaau.github.io/Coral-And-Cord-Website/"
 COLLECTIONS = {
  "bluewater":      ("bw","Bluewater","#123F56","01","Built for long days. Made for bluewater.","banner-bluewater.jpg"),
  "mangrove":       ("mg","Mangrove Roots","#5C6B3C","02","Grounded by nature. Driven by adventure.","banner-mangrove.jpg"),
- "reeftopo":       ("rt","Reef Topography","#0F2B46","03","The patterns of the reef, captured in every detail.","banner-reeftopo.jpg"),
  "ribbonreef":     ("rr","Ribbon Reef","#2E7D8D","04","Inspired by the vibrant life and colours of the Great Barrier Reef.","hero.jpg"),
  "sunsetcurrent":  ("sc","Sunset Current","#E86F51","05","Inspired by vibrant skies and the energy of the reef.","banner-sunsetcurrent.jpg"),
  "electricreef":   ("er","Electric Reef","#B0447E","06","Bold colours. Untamed waters. Made to stand out.","banner-electricreef.jpg"),
- "coralgarden":    ("cg","Coral Garden","#C7D8D5","07","A celebration of colour, life and the Great Barrier Reef.","banner-coralgarden.jpg"),
  "tropictide":     ("tt","Tropic Tide","#65C9D6","08","Colour straight off the reef, built for the tropics.","story_reef.jpg"),
 }
 TYPES = {
@@ -79,7 +77,7 @@ def seo_head(s, *, title, desc, path, og_image, jsonld=None):
 # ================= read sources =================
 import subprocess
 def git_src(name):
-    return subprocess.run(["git","show","HEAD:"+name+".html"],capture_output=True,text=True).stdout
+    return subprocess.run(["git","show","f870698:"+name+".html"],capture_output=True,text=True).stdout
 src = {f: git_src(f) for f in
        ["index","collections","product","collection","about","journal","care"]}
 
@@ -130,7 +128,9 @@ for slug,(key,name,accent,num,tag,banner) in COLLECTIONS.items():
 for slug,(key,name,accent,num,tag,banner) in COLLECTIONS.items():
     for t,(label,price) in TYPES.items():
         pid = f"{key}-{t}"
-        img = f"assets/{slug}-front.png" if t=="shirt" else f"assets/{slug}-{t}.png"
+        newset = slug in ("bluewater","electricreef","ribbonreef")
+        ext = "jpg" if newset else "png"
+        img = f"assets/{slug}-front.{ext}" if t=="shirt" else f"assets/{slug}-{t}.{ext}"
         s = relink(src["product"], 2)
         s = re.sub(r'var id=new URLSearchParams\(location\.search\)\.get\("id"\)[^;]*;',
                    f'var id="{pid}";', s)
@@ -182,5 +182,22 @@ a{{display:inline-block;margin-top:1.4rem;background:#0F2B46;color:#fff;text-dec
 </style></head><body><div><h1>Gone with the tide.</h1><p>That page has drifted off the reef.</p>
 <a href="{BASE}">Back to Coral &amp; Cord</a></div></body></html>''')
 
+# strip retired collections from footers of every generated page
+import glob as _g
+removed = 0
+for fp in _g.glob("**/index.html", recursive=True) + ["index.html"]:
+    try: txt = open(fp).read()
+    except: continue
+    o = txt
+    txt = re.sub(r'<a href="[^"]*collections/reeftopo/">Reef Topography</a>', "", txt)
+    txt = re.sub(r'<a href="[^"]*collections/coralgarden/">Coral Garden</a>', "", txt)
+    txt = re.sub(r'<article class="prod" data-id="(?:rt|cg)-[a-z]+">.*?</article>\s*', "", txt, flags=re.S)
+    txt = txt.replace('id="rt-shirt"', 'id="rr-shirt"')
+    for sl in ("bluewater","electricreef","ribbonreef"):
+        for t in ("front","back","hoodie","shorts","buff"):
+            txt = txt.replace(f"{sl}-{t}.png", f"{sl}-{t}.jpg")
+    if txt != o:
+        open(fp,"w").write(txt); removed += 1
+print("footer links stripped from", removed, "pages")
 print("Generated:", len(urls), "pages in sitemap")
 print("Tree: /shop /about /journal /care /collections(8) /products(32) + stubs + robots + sitemap + 404")
