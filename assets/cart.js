@@ -25,12 +25,9 @@ Object.keys(COLLECTIONS).forEach(function(slug){
   Object.keys(TYPES).forEach(function(t){
     var T=TYPES[t], id=c.key+"-"+t;
     var imgs;
-    var NEWSET={bluewater:1,electricreef:1,ribbonreef:1};
-    if(NEWSET[slug]){
-      if(t==="shirt"){ imgs=[ROOT+"assets/"+slug+"-front.jpg",ROOT+"assets/"+slug+"-back.jpg"]; }
-      else { imgs=[ROOT+"assets/"+slug+"-"+t+".jpg",ROOT+"assets/"+slug+"-"+t+"-back.jpg"]; }
-    } else if(t==="shirt"){ imgs=[ROOT+"assets/"+slug+"-front.png",ROOT+"assets/"+slug+"-back.png"]; }
-    else { imgs=[ROOT+"assets/"+slug+"-"+t+".png"]; }
+    /* All six collections now ship a full front + back shot for every type. */
+    if(t==="shirt"){ imgs=[ROOT+"assets/"+slug+"-front.jpg",ROOT+"assets/"+slug+"-back.jpg"]; }
+    else { imgs=[ROOT+"assets/"+slug+"-"+t+".jpg",ROOT+"assets/"+slug+"-"+t+"-back.jpg"]; }
     if(PATTERN_IMG[slug]) imgs.push(PATTERN_IMG[slug]);
     CATALOG[id]={
       id:id, collection:c.name, slug:slug, type:t,
